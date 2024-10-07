@@ -1,0 +1,110 @@
+		  ------- General todo's ------
+
+- Make submodule repos in case i make adjustments to errhandle and convnum and
+  utility.h/.c
+  - Comb through the two repos and adjust syntax formating to match up with this
+    repo
+
+- Adjust makefile post adding submodules, this will be done once i fill out
+  utility.h at least.
+
+- adjust vimrc to identify when a header is holding C programming stuff
+
+- learn make better
+
+- learn bash better for config scripts and the like
+
+	---- TODO's for the  for fun project ----
+- backtrack functionality
+- api and application functionalities
+- network stuff (rip off the rfc server ideas, b.net style)
+- system call funcionalities
+- portable C funcionalities using standard library
+- Probably keeping it C99 but mostly C89, at least pedantic C99
+- Hackin registers in C as the finally  (just do cool shit with it)
+- Bash script to adjust makefile based on new files etc.
+- assembly non-inline examples and functions
+- attribute and gcc optimization on fucking everything
+- Kernel module to give examples of system calls breaking into the kernel
+- kernel debugging techniques using the example kernel module
+- data structure examples
+- get the random repo i worked on early in my programming career and see
+  about using hardware random values (not sure if i have the hardware for "true"
+  random)
+
+- pipes, processes, interprocess communication, systemcalls/clib
+
+- VIM VIM VIM VIM
+  - big vim project, keep digging through docs, finalize vimrc
+  - compile from source
+  - bash script to have different compile configs based on system
+
+
+- go through the repo of embedded systems functionalities for the shit i am
+  doing in user land right now and see whats up. Not gonna intentionally make
+  them right now using c lib functions or whatever i mean. Not c lib functions
+  but basically not the embedded version of shit yet.
+
+	-- Current work ---
+--- file.h ---
+- test functions for user space file information found in file.h
+
+--- utility.h ---
+- Trim the fat in utility.h
+- reado functionalities for all the malloc family
+
+--- string funcionalities ---
+- file for string.h funcionalities as an API where appropriate
+- strtok once file i/o examples are finishes
+- strncpy information to take into consideration, likely making a wrapper
+       If  there is no terminating null byte in the first n bytes of src,
+       strncpy() produces an unterminated string in dest.
+       If buf has length buflen, you can force	 termination  using  something
+       like the following:
+
+	   if (buflen > 0) {
+	       strncpy(buf, str, buflen - 1);
+	       buf[buflen - 1]= '\0';
+	   }
+
+       (Of  course,  the  above	 technique ignores the fact that, if src contains more than buflen - 1
+       bytes, information is lost in the copying to dest.)
+
+--- allocation ---
+- make a version of realloc with memcpy
+- make a version of realloc with calloc
+- maybe make something with realloc
+- test this brace allocation bullshit and see if calloc is implemented with it
+  these days. Seems intereseting but probably c23 or some shit.
+  C allows you to initialize arrays during memory allocation using brace
+  initialization. This can be a concise way to set all elements to \0 directly.
+  Here's the code:
+
+	#include <stdio.h>
+	#include <stdlib.h>
+
+	int main() {
+	  // Allocate memory and initialize with null terminators
+	  char* arr = malloc(10 * sizeof(char)) = {'\0'};
+
+	  // Free the allocated memory
+	  free(arr);
+
+	  return 0;
+	}
+
+
+-- argument list and parsing ---
+- look into zargs i believe it was called
+
+	--------- Random questions that pop up and ideas -------
+-- String family --
+- What happens when strncpy gets passed len 0? returns
+
+-- malloc family --
+- what happens when calloc gets passed 0 len
+
+-- stdio family --
+- feof() - When reading from a stream and EOF is encountered on a last read that fills
+  characters, is the EOF flag from feof set or is it on next read?
+- ferror() - same as above regarding eof
